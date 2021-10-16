@@ -1,13 +1,13 @@
 import random
-from math import gcd as bltin_gcd
+from math import gcd
 
 def coprime(a, b):
-    return bltin_gcd(a, b) == 1
+    return gcd(a, b) == 1
 
 
 def prime_number():
     # n = int(input("Введите верхнюю границу диапазона: "))  # ввод границы
-    n = 31
+    n = 10000
     arr = []
     for i in range(n + 1):  # заполнение массива числами от 0 до n
         arr.append(i)
@@ -40,6 +40,7 @@ def prime_number():
     print(arr)
     return arr, num1, num2
 
+
 arr1, p, q = prime_number()
 arr1 = list(arr1)
 print("p =", p)
@@ -54,7 +55,7 @@ print("e =", e)
 
 flag = 1
 while flag:
-    if not(1 < e < f) or not coprime(e, p) or not coprime(e, p):
+    if not(1 < e < f) or not coprime(e, f) :
         print("change e")
         arr1.remove(e)
         e = random.choice(arr1)
@@ -75,3 +76,8 @@ print("cr =", cr)
 decr = (cr ** d) % m
 
 print("decr =", decr)
+
+if decr == n:
+    print("\t\t Success!")
+else:
+    print("Fail!")
